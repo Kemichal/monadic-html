@@ -7,13 +7,12 @@ Tiny DOM binding library for Scala.js
 Main Objectives: friendly syntax for frontend developers (XHTML) and fast compilation speeds (no macros).
 
 ```scala
-"in.nvilla" %%% "monadic-html" % "latest.integration"
+"in.nvilla" %%% "monadic-html" % "0.3.0-RC1"
 ```
 
-The core value propagation library is also available separately for both platforms as `monadic-rx`. Integration with [cats](https://github.com/typelevel/cats) is optionally available as `monadic-rx-cats`.
+The core value propagation library is also available separately for both platforms as `monadic-rx`. Integration with [cats](https://github.com/typelevel/cats) is optionally available as `monadic-rx-cats`. Conversion from `scala.concurrent.Future[T]` to `mhtml.Rx[T]` is optionally available as `monadic-rx-future`.
 
 This library is inspired by [Binding.scala](https://github.com/ThoughtWorksInc/Binding.scala) and [Scala.rx](https://github.com/lihaoyi/scala.rx) which both relies on macros to obtain type-safety and hide monadic context from users.
-
 
 ## Getting Started
 

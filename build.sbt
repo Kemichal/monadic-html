@@ -12,6 +12,8 @@ lazy val root = project.in(file("."))
     `monadic-rxJVM`,
     `monadic-rx-catsJS`,
     `monadic-rx-catsJVM`,
+    `monadic-rx-futureJS`,
+    `monadic-rx-futureJVM`,
     `examples`,
     `tests`
   )
@@ -22,6 +24,13 @@ lazy val `monadic-html` = project
   .dependsOn(`monadic-rxJS`)
   .settings(publishSettings: _*)
   .settings(libraryDependencies += "org.scala-js" %%% "scalajs-dom" % scalajsdom)
+
+lazy val `monadic-rx-futureJS`  = `monadic-rx-future`.js
+lazy val `monadic-rx-futureJVM` = `monadic-rx-future`.jvm
+lazy val `monadic-rx-future`    = crossProject
+  .crossType(CrossType.Pure)
+  .dependsOn(`monadic-rx`)
+  .settings(publishSettings: _*)
 
 lazy val `monadic-rxJS`  = `monadic-rx`.js
 lazy val `monadic-rxJVM` = `monadic-rx`.jvm
@@ -49,7 +58,7 @@ lazy val `tests` = project
 
 lazy val `examples` = project
   .enablePlugins(ScalaJSPlugin)
-  .dependsOn(`monadic-html`, `monadic-rx-catsJS`)
+  .dependsOn(`monadic-html`, `monadic-rx-catsJS`, `monadic-rx-futureJS`)
   .settings(noPublishSettings: _*)
   .settings(
     emitSourceMaps := true,
